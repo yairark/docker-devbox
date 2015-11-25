@@ -34,6 +34,7 @@ CMD ["/sbin/my_init"]
 #RUN /pd_build/nodejs.sh
 
 # ...put your own build instructions here...
+run apt-get install mysql-server
 #enable Nginx and Passenger Support
 RUN rm -f /etc/service/nginx/down
 # Clean up APT when done.
