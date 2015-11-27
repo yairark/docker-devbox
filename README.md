@@ -6,3 +6,9 @@
 - Base image templates for Redhat, and Debian setups. 
 
 - Minimal setups for Ruby on Rails and PHP and basic web-dev (HTML/CSS,JS)
+	
+- Future Features:Automation Tools: 
+	
+	- Chef Recipes,Puppet Modules and Ansible 
+	
+	- Jenkins Container Builds for Automating tasks	
