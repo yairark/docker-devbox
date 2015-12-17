@@ -1,5 +1,5 @@
 #Docker Debian template
-FROM debian
+FROM sharelatex
 MAINTAINER pggsx
 
 ENV DEBIAN_FRONTEND noninteractive
