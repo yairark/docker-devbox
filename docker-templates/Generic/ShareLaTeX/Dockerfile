@@ -4,9 +4,8 @@ MAINTAINER pggsx
 
 ENV DEBIAN_FRONTEND noninteractive
 
-run adduser admin
-run useradd -g admin sudo
 run apt-get -y update && apt-get -y upgrade
+run apt-get -y install vim git mercurial tmux
 #insert project build
 run echo "insert git clone here"
 

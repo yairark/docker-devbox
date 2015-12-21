@@ -1,13 +1,12 @@
 #Docker Debian template
-FROM sharelatex
+FROM debian
 MAINTAINER pggsx
 
 ENV DEBIAN_FRONTEND noninteractive
-
-run adduser admin
-run useradd -g admin sudo
+RUN adduser --disabled-password --gecos '' deploy
 run apt-get -y update && apt-get -y upgrade
+run apt-get install -y build-essential sudo vim git tmux mercurial nginx nginx-common nginx-extras
+run useradd -g deploy sudo
 #insert project build
 run echo "insert git clone here"
-
 run echo "build complete"
