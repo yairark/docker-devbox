@@ -6,7 +6,7 @@ MAINTAINER pggsx
 ENV DEBIAN_FRONTEND noninteractive
 
 run adduser --disabled-password --gecos '' deploy
-run useradd -g deploy sudo
+run usermod -aG sudo deploy
 run apt-get -y update && apt-get -y upgrade
 run apt-get	install -y nginx tmux vim git mercurial php5-mysql mysql-server openjdk-7-jre
 run apt-get install -y curl
