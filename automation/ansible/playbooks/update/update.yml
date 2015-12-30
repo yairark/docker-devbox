@@ -1,0 +1,7 @@
+ 
+- hosts: docker
+  remote_user: root
+  tasks: 
+    - name: Update
+      apt: update_cache=yes
+      apt: upgrade=dist

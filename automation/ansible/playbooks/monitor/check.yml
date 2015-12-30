@@ -1,0 +1,27 @@
+- hosts: all
+  remote_user: root
+  tasks: 
+    - name: ping_test
+      ping:    
+    - name: ssh_verify
+      service: name=ssh state=started enabled=yes 
+    
+    - name: test_nginx
+      command: dpkg-query -l nginx
+      register: is_nginx_installed
+      failed_when: is_nginx_installed.rc > 1
+      changed_when: no
+    
+    - name: test_apache
+      command: dpkg-query -l apache
+      register: is_apache_installed
+      failed_when: is_apache_installed.rc > 1
+      changed_when: no
+    
+    - name: nginx_status
+      service: name=nginx state=started enabled=yes
+      when: is_nginx_installed.rc == 0
+    
+    - name: apache_status
+      service: name=apache state=started enabled=yes
+      when: is_apache_installed.rc == 0

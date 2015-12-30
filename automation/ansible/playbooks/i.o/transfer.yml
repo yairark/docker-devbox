@@ -1,0 +1,26 @@
+- hosts: all
+  remote_user: root
+  tasks: 
+    - name: test_nginx
+      command: dpkg-query -l nginx
+      register: is_nginx_installed
+      failed_when: is_nginx_installed.rc > 1
+      changed_when: no    
+    - name: test_apache
+      command: dpkg-query -l apache
+      register: is_apache_installed
+      failed_when: is_apache_installed.rc > 1
+      changed_when: no
+    
+    - name: nginx_status
+      service: name=nginx state=started enabled=yes
+      when: is_nginx_installed.rc == 0
+    
+    - name: apache_status
+      service: name=apache state=started enabled=yes
+      when: is_apache_installed.rc == 0
+      
+    - copy: src=/etc/nginx/nginx.conf dest=/etc/nginx/ owner=root mode=0644 
+      when: is_nginx_installed.rc == 0
+    - copy: src=/etc/apache2/apache2.conf dest=/etc/apache/ owner=root mode=0644 
+      when: is_apache_installed.rc == 0
