@@ -9,7 +9,7 @@
 	
 - Future Features:Automation Tools: 
 	
-	- Chef Recipes,Puppet Modules and Ansible Playbooks
+	- Chef Recipes, Ansible Playbooks
 	
 	- Jenkins Container Builds for Automating tasks	
 	
