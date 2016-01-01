@@ -1,0 +1,7 @@
+name 'docker_prov_upd'
+maintainer 'The Authors'
+maintainer_email 'you@example.com'
+license 'all_rights'
+description 'Installs/Configures docker_prov_upd'
+long_description 'Installs/Configures docker_prov_upd'
+version '0.1.0'
