@@ -1,6 +1,6 @@
 #
 # example Dockerfile for https://docs.docker.com/examples/postgresql_service/
-#
+# Taken from Sven's original file
 
 FROM debian
 MAINTAINER pggsx
@@ -37,5 +37,8 @@ USER postgres
 #       allows the RUN command to span multiple lines.
 RUN    /etc/init.d/postgresql start &&\
 				 psql --command "CREATE USER deploy WITH SUPERUSER PASSWORD 'password';" &&\
-				 createdb -O deploy docker
+				 createdb -O deploy deploy_db
 
+
+				 USER root 
+				 RUN echo "Build complete"
